@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IStudent</title>
+
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="/public/assets/css/app.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="main">
+        <!-- HEADER -->
+        <div class="header sticky-top row py-1 bg-primary bg-gradient text-white">
+            <div class="header__left col-2 text-center">
+                <img class="header-left__logo" src="/public/assets/img/logo.png" alt="logo">
+                <span class="header-left__name align-middle">Student</span>
+            </div>
+            <div class="header__right col-10 d-flex justify-content-between">
+                <button type="button" class="btn text-white btn__header">
+                    <i class='bx bx-list-ul'></i>
+                </button>
+                <button type="button" class="btn text-white btn__header"  onclick="Logout()">
+                    <i class='bx bx-log-in-circle align-middle'></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </div>
+        <!-- END HEADER -->
+
+        <div class="row text-white mx-0">
+            <!-- MENU -->
+            <div class="menu col-2 px-0 border-0">
+                <div class="user__info row">
+                    <div class="col-5">
+                        <img class="user-info__logo" src="/public/assets/img/user-logo.png" alt="user-logo">
+                    </div>
+                    <div class="col-7 align-self-center ">
+                        <div class="row-6" id="HI">
+                            Hi! Admin
+                        </div>
+                        <div class="row-6">
+                            <i class='bx bxs-circle bx-flashing' style='color:#00ff0d'> Online </i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mx-0 p-3 bg-dark opacity-75">
+                    MENU
+                </div>
+                <div class="list-group ">
+                    <a href="" class="list-group-item list-group-item-action menu__item">
+                        <i class='bx bx-user-plus'></i>
+                        Lớp dạy
+                    </a>
+                    <a href="/changepass1" class="list-group-item list-group-item-action menu__item">
+                        <i class='bx bx-code'></i>
+                        Đổi mật khẩu
+                    </a>
+                </div>
+            </div>
+            <!-- END MENU -->
+
+            <!-- TEACHER INFORMATION -->
+            <div class="col-10 px-0 position-relative">
+                <div class="header-name text-black fw-bold fs-5 p-2">
+                    <i class='bx bx-error-circle' style='color:#0096ff'></i>
+                    THÔNG TIN LỚP DẠY
+                </div>
+                <div class="table-responsive mx-3">
+                    <ul id="ROW1">
+                    </ul>
+                    
+                </div>
+
+                 <!-- FOOTER -->
+                 <footer class="footer py-3 mx-0 text-center bg-dark opacity-75">
+                    Copyright ISTUDENT © 2021
+                </footer>
+                <!-- END FOOTER -->
+            </div>
+            <!-- END TEACHER INFORMATION -->
+
+            
+
+        </div>
+
+
+
+
+
+    </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+<script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
+<script src="/public/assets/js/app.js"></script>
+<script src="./LopDay.js">
+    
+</script>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IStudent</title>
+
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="/public/assets/css/app.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="main">
+        <!-- HEADER -->
+        <div class="header sticky-top row py-1 bg-primary bg-gradient text-white">
+            <div class="header__left col-2 text-center">
+                <img class="header-left__logo" src="/public/assets/img/logo.png" alt="logo">
+                <span class="header-left__name align-middle">Student</span>
+            </div>
+            <div class="header__right col-10 d-flex justify-content-between">
+                <button type="button" class="btn text-white btn__header">
+                    <i class='bx bx-list-ul'></i>
+                </button>
+                <button type="button" class="btn text-white btn__header"  onclick="Logout()">
+                    <i class='bx bx-log-in-circle align-middle'></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </div>
+        <!-- END HEADER -->
+
+        <div class="row text-white mx-0">
+            <!-- MENU -->
+            <div class="menu col-2 px-0 border-0">
+                <div class="user__info row">
+                    <div class="col-5">
+                        <img class="user-info__logo" src="/public/assets/img/user-logo.png" alt="user-logo">
+                    </div>
+                    <div class="col-7 align-self-center ">
+                        <div class="row-6" id="HI">
+                            Hi! Admin
+                        </div>
+                        <div class="row-6">
+                            <i class='bx bxs-circle bx-flashing' style='color:#00ff0d'> Online </i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mx-0 p-3 bg-dark opacity-75">
+                    MENU
+                </div>
+                <div class="list-group ">
+                    <a href="/" class="list-group-item list-group-item-action menu__item">
+                        <i class='bx bx-home-alt'></i>
+                        Sinh Viên
+                    </a>
+                    <a href="/subject" class="list-group-item list-group-item-action menu__item">
+                        <i class='bx bxs-book'></i>
+                        Môn Học
+                    </a>
+                    <a href="/dsKhoa" class="list-group-item list-group-item-action menu__item">
+                        <i class='bx bxs-graduation'></i>
+                        Khoa
+                    </a>
+                    <a href="/class" class="list-group-item list-group-item-action menu__item">
+                        <i class='bx bxs-graduation'></i>
+                        Lớp Học
+                    </a>
+                    <a href="/teacher" class="list-group-item list-group-item-action menu__item">
+                        <i class='bx bx-user-plus'></i>
+                        Giảng Viên
+                    </a>
+                    <a href="/assignment" class="list-group-item list-group-item-action menu__item">
+                        <i class='bx bx-user-plus'></i>
+                        Phân công
+                    </a>
+                    <a href="/permissionaccount" class="list-group-item list-group-item-action menu__item">
+                        <i class='bx bx-user-plus'></i>
+                        Cấp quyền
+                    </a>
+                    <a href="/ChangePass" class="list-group-item list-group-item-action menu__item">
+                        <i class='bx bx-code'></i>
+                        Đổi mật khẩu
+                    </a>
+                </div>
+            </div>
+            <!-- END MENU -->
+            <div class="modal fade" id="add-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-black" id="exampleModalLabel">Thêm Lớp</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-black">
+                                        <div>
+                                            <div class="mb-3">
+                                                <label for="sv_mssv" class="form-label">Mã Lớp</label>
+                                                <input type="text" class="form-control" id="MaLop">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="sv_name" class="form-label">Tên Lớp</label>
+                                                <input type="text" class="form-control" id="TenLop">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="sv_name" class="form-label">Tên Khoa</label>
+                                                <select class="form-control select2" id="Brand1" style="width: 100%;">
+                                                    
+                                                </select>
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger"
+                                                    data-bs-dismiss="modal">Thoát</button>
+                                                <button  class="btn btn-primary" onclick="Them()" data-bs-dismiss="modal">Lưu</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+             </div>
+             <div class="modal fade text-start" id="edit-modal" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true" >
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title text-black" id="exampleModalLabel">Cập nhật lớp</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body text-black">
+                                                    <div>
+                                                        <div class="mb-3">
+                                                            <label for="sv_mssv" class="form-label">Mã lớp</label>
+                                                            <input type="text" class="form-control" disabled id="MaLop1">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="sv_name" class="form-label">Tên lớp</label>
+                                                            <input type="text" class="form-control" id="TenLop1">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="sv_name" class="form-label">Tên Khoa</label>
+                                                            <select class="form-control select2" id="Brand2" style="width: 100%;">
+                                                                
+                                                            </select>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-danger"
+                                                                data-bs-dismiss="modal">Thoát</button>
+                                                            <button onclick="Sua()" data-bs-dismiss="modal" class="btn btn-primary">Lưu</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+            </div>
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="staticBackdropLabel">Xóa dữ liệu</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body text-start" style="color: black;" id="Mess">
+                                                    
+                                                </div>
+                                                <div class="modal-footer" id="button">
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+        </div>
+            <!-- CLASS -->
+            <div class="col-10 px-0 position-relative">
+                <div class="header-name text-black fw-bold fs-5 p-2">
+                    <i class='bx bxs-graduation' style='color:#0096ff'></i>
+                    LỚP HỌC
+                </div>
+
+                <div class="my-4 mx-3 d-flex justify-content-between">
+
+                    <!-- Export File -->
+                    <div class="export-file">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#add-modal"><i class='bx bx-plus bx-tada'></i> Thêm
+                        </button>
+                        <button type="button" class="btn btn-danger" onclick="LoadData()" >
+                            <i class='bx bxs-file-pdf bx-flip-horizontal bx-tada' ></i> Load data
+                        </button>
+                    </div>
+                    <!-- End Export File -->
+                </div>
+
+                <div class="table-responsive mx-3">
+                    <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Mã lớp học</th>
+                            <th scope="col">Tên lớp học</th>
+                            <th scope="col">Mã Khoa</th>
+                            <th scope="col">Hành động</th>
+                          </tr>
+                        </thead>
+                        <tbody id="row1">
+                        </tbody>
+                      </table>
+                </div>
+
+
+                 <!-- FOOTER -->
+                 <footer class="footer py-3 mx-0 text-center bg-dark opacity-75">
+                    Copyright ISTUDENT © 2021
+                </footer>
+                <!-- END FOOTER -->
+            </div>
+            <!-- END CLASS -->
+
+            
+
+        </div>
+
+
+
+
+
+    </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+<script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
+<script src="/public/assets/js/app.js"></script>
+<!-- <script>
+    function LoadCombo()
+    {
+        $.ajax({
+            type: "GET",
+            url: "/khoa", //Tên servlet
+            success:function (result){
+                console.log(result)
+                var row = document.getElementById("Brand1")
+                row.innerHTML = null;
+                var htmlString=``;
+                for(let item in result)
+                {
+                    htmlString+=`<option value="`+result[item].MaKhoa+`">`+result[item].TenKhoa+`</option>`
+                }
+                row.innerHTML=htmlString
+            }
+        })
+    }
+    function CheckLogin()
+    {
+        var allcookies = document.cookie;
+        cookiearray = allcookies.split(';');
+        var value = cookiearray[0].split('=')[1];
+        console.log(value)
+        if(value==null||value=='')
+        {
+            window.location="/login"
+        }
+        else{
+            $.ajax({
+            type: "Get",
+            url: "/GiangVien/"+value, //Tên servlet
+            success:function (result){
+                console.log(result)
+                var row = document.getElementById("HI")
+                row.innerHTML = null;
+                row.innerHTML="Hi! "+result[0].MaGV
+                }
+            })
+        }
+        
+    }
+    $(document).ready(function(){
+        LoadCombo()
+        LoadData()
+        CheckLogin()
+    })
+    function LoadData()
+    {
+        $.ajax({
+            type: "GET",
+            url: "/lop", //Tên servlet
+            success:function (result){
+                console.log(result)
+                var row = document.getElementById("row1")
+                row.innerHTML = null;
+                var htmlString=``;
+                let total=result.length
+                for(let item in result)
+                {
+                    var total1=item-'-1'
+                    let total2=total-item-1
+                    console.log(total2)
+                    htmlString+=` <tr>
+                            <th scope="row">`+(total1)+`</th>
+                            <td>`+result[total2].MaLop+`</td>
+                            <td>`+result[total2].TenLop+`</td>
+                            <td>`+result[total2].MaKhoa+`</td>
+                            <td class="text-center">
+                                <button type="submit" data-bs-toggle="modal"
+                                        data-bs-target="#edit-modal" onclick="Load1('`+result[total2].MaLop+`')" class="btn btn-outline-danger py-1">Sửa</button>
+                                <button type="submit" class="btn btn-outline-warning py-1" onclick="Load2('`+result[total2].MaLop+`')" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">Xóa</button>
+                            </td>
+                          </tr>`
+                }
+                row.innerHTML=htmlString
+                console.log('1')
+            }
+
+        })
+    }
+    function Them()
+    {
+        var Khoa=$("#Brand1").find(":selected").val();
+        var a=document.getElementById("MaLop").value;
+        var b=document.getElementById("TenLop").value;
+        $.ajax({
+            type: "POST",
+            url: "/Lop", //Tên servlet
+            data: {"MaLop":a,"TenLop":b,"MaKhoa":Khoa}
+        })
+    }
+    function Load1(data)
+    {
+        var a=''
+        $.ajax({
+            type: "Get",
+            url: "/lop/"+data, //Tên servlet
+            success:function (result){
+                document.getElementById('MaLop1').value=''
+                document.getElementById('TenLop1').value=''
+                document.getElementById('MaLop1').value=result[0].MaLop
+                document.getElementById('TenLop1').value=result[0].TenLop
+                a=document.getElementById("Brand2").value=result[0].MaKhoa
+                $.ajax({
+                    type: "GET",
+                    url: "/khoa", //Tên servlet
+                    success:function (result){
+                    console.log(result)
+                    var row = document.getElementById("Brand2")
+                    row.innerHTML = null;
+                    var htmlString=``;
+                    for(let item in result)
+                    {
+                        htmlString+=`<option value="`+result[item].MaKhoa+`">`+result[item].TenKhoa+`</option>`
+                    }
+                    row.innerHTML=htmlString
+                    document.getElementById("Brand2").value=a
+                    
+                }
+             })
+            }
+        })
+
+    }
+    function Sua()
+    {
+        var Khoa=$("#Brand2").find(":selected").val();
+        var a=document.getElementById("MaLop1").value;
+        var b=document.getElementById("TenLop1").value;
+        $.ajax({
+            type: "PUT",
+            url: "/lop/"+a, //Tên servlet
+            data: {"TenLop":b,"MaKhoa":Khoa}
+        })
+    }
+    function Load2(data)
+    {
+        var row = document.getElementById("Mess")
+        row.innerHTML = null;
+        row.innerHTML="Bạn có chắc muốn xóa lớp "+ data;
+        var row1 = document.getElementById("button")
+        row1.innerHTML = null;
+        row1.innerHTML = `<button type="button" class="btn btn-danger"
+                                                        data-bs-dismiss="modal">Không</button>
+                          <button type="button" class="btn btn-primary" onclick="Xoa('`+data+`')" data-bs-dismiss="modal">Xác nhận</button>`
+
+    }
+    function Xoa(data)
+    {
+        $.ajax({
+            type: "Delete",
+            url: "/lop/"+data, //Tên servlet
+        })
+    }
+    function Logout()
+    {
+        document.cookie = "name=;"
+        CheckLogin()
+    }
+</script> -->
+<script src="./class.js"></script>
+</html>

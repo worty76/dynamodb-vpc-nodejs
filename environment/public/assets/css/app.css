@@ -1,0 +1,140 @@
+:root {
+    --header-color: #0096FF;
+    --text-color: #ffffff;
+    --bg-menu: #454545;
+    --bg-color: #f7f7f7;
+    --bg-color-up: #d2d6df;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+/* HEADER */
+
+.header-left__logo {
+    width: 30px;
+}
+
+.header-left__name {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.header-name {
+    background-color: var(--bg-color-up);
+}
+
+.btn__header {
+    font-size: 18px;
+}
+
+/* END HEADER */
+
+/* MENU */
+.menu {
+    background-color: var(--bg-menu);
+    height: 100vh;
+}
+
+.user-info__logo {
+    width: 70px;
+}
+
+.menu__item {
+    background-color: var(--bg-menu);
+    color: var(--text-color);
+    padding: 20px 10px;
+}
+
+.menu__item:hover {
+    border-right: none;
+    border-radius: 0;
+    background-color: #0096FF;
+    color: var(--text-color);
+}
+
+.menu__student ul {
+    list-style-type: none;
+}
+
+.menu__student:hover {
+    background-color: var(--bg-menu);
+    padding-bottom: 0;
+}
+
+.menu__student:hover .menu-student__list {
+    display: block !important;
+}
+
+.menu__student a:hover {
+    background-color: var(--header-color) !important;
+}
+
+
+/* END MENU */
+
+/* HOME */
+
+.home {
+    background-color: var(--bg-color);
+    height: 100vh; 
+}
+
+.card__icon {
+    font-size: 100px;
+    opacity: 0.5;
+}
+
+.card__more {
+    text-decoration: none;
+    color: var(--text-color);
+    text-align: center;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.card__more:hover {
+    color:var(--text-color);
+    background-color: rgba(0, 0, 0, .4);
+}
+
+.home__search {
+    max-width: 700px;
+
+}
+
+.home-search__btn {
+    height: 50px;
+    width: 130px;
+    border-radius: 5px 0 0 5px;
+}
+
+.text {
+	background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+/* END HOME */
+
+/* FOOTER */
+.footer {
+    position: absolute !important;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/* END FOOTER */
+
+/* STUDENT INFORMATION */
+
+    .search-sub {
+        width: 30%;
+    }
+
+/* END STUDENT INFORMATION */
