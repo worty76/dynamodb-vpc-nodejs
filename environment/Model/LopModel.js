@@ -47,6 +47,17 @@ async function Create(Data) {
     MessageBody: JSON.stringify(LopData),
     QueueUrl: 'https://sqs.us-east-1.amazonaws.com/' + accountId + '/InsertLop',
   };
+
+  var params = {
+    TableName: 'Lops',
+    Item: LopData,
+  };
+
+  docClient.put(params, function (err, data) {
+    if (err) console.log(err);
+    else console.log('Insert successfully: ' + data);
+  });
+
   let sendSqsMessage = sqs.sendMessage(sqsLopData).promise();
   sendSqsMessage
     .then((data) => {
@@ -95,6 +106,25 @@ async function Update(ID, TenLop, MaKhoa) {
     MessageBody: JSON.stringify(LopData),
     QueueUrl: 'https://sqs.us-east-1.amazonaws.com/' + accountId + '/UpdateLop',
   };
+
+  var params = {
+    TableName: 'Lops',
+    Key: {
+      MaLop: ID,
+    },
+    UpdateExpression: 'set MaLop = :u, TenLop=:r,MaKhoa=:q',
+    ExpressionAttributeValues: {
+      ':u': Data.MaLop,
+      ':r': Data.TenLop,
+      ':q': Data.MaKhoa,
+    },
+  };
+
+  docClient.update(params, function (err, data) {
+    if (err) console.log(err);
+    else console.log('Update MaLop, TenLop,MaKhoa: ' + data);
+  });
+
   let sendSqsMessage = sqs.sendMessage(sqsLopData).promise();
   sendSqsMessage
     .then((data) => {
@@ -129,6 +159,7 @@ async function Delete(ID) {
     if (err) console.log(err);
     else console.log('Delete successfully: ' + data);
   });
+
   let sendSqsMessage = sqs.sendMessage(sqsLopData).promise();
   sendSqsMessage
     .then((data) => {
