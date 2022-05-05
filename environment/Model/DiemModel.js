@@ -146,6 +146,26 @@ async function Update(ID, ID1, Data) {
     QueueUrl:
       'https://sqs.us-east-1.amazonaws.com/' + accountId + '/UpdateDiem',
   };
+
+  var params = {
+    TableName: 'Diems',
+    Key: {
+      User_Id: ID,
+      MaSV: ID1,
+    },
+    UpdateExpression: 'set DiemChuyenCan = :cc, DiemGiuaKi=gk, DiemCuoiKi=:ck',
+    ExpressionAttributeValues: {
+      ':cc': Data.DiemChuyenCan,
+      ':gk': Data.DiemGiuaKi,
+      ':ck': Data.DiemCuoiKi,
+    },
+  };
+
+  docClient.update(params, function (err, data) {
+    if (err) console.log(err);
+    else console.log('Update diem : ' + data);
+  });
+
   let sendSqsMessage = sqs.sendMessage(sqsDiemData).promise();
   sendSqsMessage
     .then((data) => {
@@ -176,6 +196,17 @@ async function Delete(ID, ID1) {
     QueueUrl:
       'https://sqs.us-east-1.amazonaws.com/' + accountId + '/DeleteDiem',
   };
+
+  var params = {
+    TableName: 'Diems',
+    Key: DiemData,
+  };
+
+  docClient.delete(params, function (err, data) {
+    if (err) console.log(err);
+    else console.log('Delete successfully: ' + data);
+  });
+
   let sendSqsMessage = sqs.sendMessage(sqsDiemData).promise();
   sendSqsMessage
     .then((data) => {

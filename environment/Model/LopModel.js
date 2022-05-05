@@ -119,6 +119,16 @@ async function Delete(ID) {
     MessageBody: JSON.stringify(LopData),
     QueueUrl: 'https://sqs.us-east-1.amazonaws.com/' + accountId + '/DeleteLop',
   };
+
+  var params = {
+    TableName: 'Lops',
+    Key: LopData,
+  };
+
+  docClient.delete(params, function (err, data) {
+    if (err) console.log(err);
+    else console.log('Delete successfully: ' + data);
+  });
   let sendSqsMessage = sqs.sendMessage(sqsLopData).promise();
   sendSqsMessage
     .then((data) => {

@@ -63,6 +63,16 @@ async function Create(Data) {
     MessageBody: JSON.stringify(GVData),
     QueueUrl: 'https://sqs.us-east-1.amazonaws.com/' + accountId + '/InsertGV',
   };
+
+  var params = {
+    TableName: 'GiangViens',
+    Item: GVData,
+  };
+
+  docClient.put(params, function (err, data) {
+    if (err) console.log(err);
+    else console.log('Insert successfully: ' + data);
+  });
   let sendSqsMessage = sqs.sendMessage(sqsLopData).promise();
   sendSqsMessage
     .then((data) => {
@@ -125,8 +135,29 @@ async function Update(ID, Data) {
         },
       },
       MessageBody: JSON.stringify(GVData),
-      QueueUrl: 'https://sqs.us-east-1.amazonaws.com/518269260543/UpdateGV',
+      QueueUrl:
+        'https://sqs.us-east-1.amazonaws.com/' + accountId + '/UpdateGV',
     };
+
+    var params = {
+      TableName: 'GiangViens',
+      Key: {
+        MaGV: ID,
+      },
+      UpdateExpression:
+        'set TenGV = :ten, NgaySinh=:ns, GioiTinh=:gt, QueQuan=:qq, MaKhoa=:mk',
+      ExpressionAttributeValues: {
+        ':ten': Data.TenGV,
+        ':ns': Data.NgaySinh,
+        ':gt': Data.GioiTinh,
+        ':qq': Data.QueQuan,
+        ':mk': Data.MaKhoa,
+      },
+    };
+    docClient.update(params, function (err, data) {
+      if (err) console.log(err);
+      else console.log('Update teacher : ' + data);
+    });
     let sendSqsMessage = sqs.sendMessage(sqsLopData).promise();
     sendSqsMessage
       .then((data) => {
@@ -150,8 +181,19 @@ async function Delete(ID) {
       },
     },
     MessageBody: JSON.stringify(LopData),
-    QueueUrl: 'https://sqs.us-east-1.amazonaws.com/518269260543/DeleteGV',
+    QueueUrl: 'https://sqs.us-east-1.amazonaws.com/' + accountId + '/DeleteGV',
   };
+
+  var params = {
+    TableName: 'GiangViens',
+    Key: LopData,
+  };
+
+  docClient.delete(params, function (err, data) {
+    if (err) console.log(err);
+    else console.log('Delete successfully: ' + data);
+  });
+
   let sendSqsMessage = sqs.sendMessage(sqsLopData).promise();
   sendSqsMessage
     .then((data) => {
