@@ -1,5 +1,4 @@
-const dotenv = require('dotenv');
-dotenv.config({ path: '../../.env' });
+require('dotenv').config();
 
 let accountId = process.env.USER_ID;
 const AWS = require('aws-sdk');
@@ -11,7 +10,9 @@ AWS.config.update({
 
 //
 const sqs = new AWS.SQS({ apiVersion: '2012-11-05' });
-const queueUrl = 'https://sqs.us-east-1.amazonaws.com/' + accountId + '/test';
+const queueUrl = `https://sqs.us-east-1.amazonaws.com/${accountId}/test`;
+const urlUpdate = `https://sqs.us-east-1.amazonaws.com/${accountId}/UpdateKhoa`;
+console.log(urlUpdate);
 var docClient = new AWS.DynamoDB.DocumentClient();
 async function Get() {
   const params = {
@@ -29,6 +30,17 @@ async function Create(Data) {
     MaKhoa: Data.MaKhoa,
     TenKhoa: Data.TenKhoa,
   };
+
+  var params = {
+    TableName: 'Khoas',
+    Item: KhoaData,
+  };
+
+  docClient.put(params, function (err, data) {
+    if (err) console.log(err);
+    else console.log(data);
+  });
+
   let sqsKhoaData = {
     MessageAttributes: {
       MaKhoa: {
@@ -85,8 +97,7 @@ async function Update(ID, Khoa) {
       },
     },
     MessageBody: JSON.stringify(KhoaData),
-    QueueUrl:
-      'https://sqs.us-east-1.amazonaws.com/' + accountId + '/UpdateKhoa',
+    QueueUrl: urlUpdate,
   };
   var params = {
     TableName: 'Khoas',
@@ -95,7 +106,7 @@ async function Update(ID, Khoa) {
     },
     UpdateExpression: 'set TenKhoa=:ns',
     ExpressionAttributeValues: {
-      ':ns': Data.TenKhoa,
+      ':ns': Khoa,
     },
   };
   docClient.update(params, function (err, data) {
@@ -124,8 +135,7 @@ async function Delete(ID) {
       },
     },
     MessageBody: JSON.stringify(KhoaData),
-    QueueUrl:
-      'https://sqs.us-east-1.amazonaws.com/' + accountId + '/DeleteKhoa',
+    QueueUrl: `https://sqs.us-east-1.amazonaws.com/${accountId}/DeleteKhoa`,
   };
 
   let sendSqsMessage = sqs.sendMessage(sqsKhoaData).promise();

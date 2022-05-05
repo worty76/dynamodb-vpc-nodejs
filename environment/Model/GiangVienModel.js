@@ -1,6 +1,4 @@
-const dotenv = require('dotenv');
-dotenv.config({ path: '../../.env' });
-
+require('dotenv').config();
 let accountId = process.env.USER_ID;
 // Configure the region
 const AWS = require('aws-sdk');

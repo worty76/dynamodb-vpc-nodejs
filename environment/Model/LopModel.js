@@ -1,6 +1,4 @@
-const dotenv = require('dotenv');
-dotenv.config({ path: '../../.env' });
-
+require('dotenv').config();
 let accountId = process.env.USER_ID;
 // Configure the region
 const AWS = require('aws-sdk');
@@ -112,11 +110,10 @@ async function Update(ID, TenLop, MaKhoa) {
     Key: {
       MaLop: ID,
     },
-    UpdateExpression: 'set MaLop = :u, TenLop=:r,MaKhoa=:q',
+    UpdateExpression: 'set  TenLop=:r,MaKhoa=:q',
     ExpressionAttributeValues: {
-      ':u': Data.MaLop,
-      ':r': Data.TenLop,
-      ':q': Data.MaKhoa,
+      ':r': TenLop,
+      ':q': MaKhoa,
     },
   };
 
