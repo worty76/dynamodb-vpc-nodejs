@@ -10,6 +10,8 @@ DynamoDB và Lambda của AWS
 - Tạo máy ảo EC2 Cloud9Ubuntu cấu hình thì tùy theo nhu cầu sử dụng.
 - Tạo lần lượt các giao thức SSH, HTTP, HTTPS và một giao thức có Port là 8080
   để truy cập web cho máy ảo.
+- Tạo thêm các Simple queue service, 25 sqs
+- Tạo các 8 tables in Dynamodb
 
 ### 2. Tạo 1 địa chỉ ElasticIP và gán nó vào máy ảo EC2 vừa tạo
 
@@ -19,7 +21,7 @@ DynamoDB và Lambda của AWS
   install npm" để cài đặt Nodejs.
 - Chạy lệnh aws configure và cung cấp lần lượt các thông tin AWS Access Key ID,
   AWS Secret Access Key, Default region name, Default output format.
-- Chạy lệnh aws configure set aws_session_token  "FwoGZXIvYXdzENj//////////wEaDMx9eAeTyNUzb7GfoyLPAVTAf/uM92HLq7fyOztI6mvHn+Nr+axpBH8pjuUrULnoex/+ji3FxsGzy3uyjm9+SIJv2TB4n8mh7TkxF8rbVarsEUUJvBAs9W93Rc57QCaSaQRUkNnrmtneFJbM1XoVpMTZdNuVz1JgQLJkimUQneg+R8paYN5e08NkAswRd7fJmQyGFdUv0j4VRA64zZth1wD/PTKlwoDxT6bvFXYhgsWXb07DK58fp+Tt3ioKjeFeBZDFXWiGltieFA7FjKy6sfFTdA+VuLN0jvsMDv/fOSjzzM+TBjItWbt+Pb4yHC1jD0QexMDRraXebdBAC6Yw83lsKEDNZjb3uggZVeKIHs7mgnIH"
+- Chạy lệnh aws configure set aws_session_token "FwoGZXIvYXdzEPD//////////wEaDM9JdORI44d8kPu8byLPAcIkEFN8BC5ioShxQfMxzqmURPt3a845zvT0q03i+acgyvQYT+Yfi/nkUxaUilk70NaZQWprilgbKTAW49of2j/xvMuXSypUEc9No9WwZ839NvTlaoT6Ertfbpkr9JXtS0Vpo6PsaFkrgXwRtIOgF8TeFuKB6l6F23rSXCDp+GfR3tc8kviic370QCg2cDEE7UrGOonLn3VTuEQ4B8/ZBcpf7mX74eusYytoOh+Qi5hq2zKsLm/WoFWA26rdyqrZJA6rFOVpr+nwwshVxFXlUCjB49STBjItz8ptf1VeTfnzAQ16pqy2/o98CvBOaKP30qkKs3yFJ2Tgy6P3hrUgVkvoJhpf"
 
   để cung cấp token.
 
