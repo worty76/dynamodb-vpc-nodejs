@@ -361,7 +361,7 @@
   <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
   <script src="/public/assets/js/app.js"></script>
   <script>
-    const ip = 'http://52.1.25.243:8080';
+    const ip = 'http://52.1.25.243:8889';
 
     function LoadData() {
       $.ajax({
@@ -428,7 +428,7 @@
       } else {
         $.ajax({
           type: 'Get',
-          url: 'http://3.239.174.40:8080/GiangVien/' + value, //Tên servlet
+          url: 'http://3.239.174.40:8889/GiangVien/' + value, //Tên servlet
           success: function (result) {
             console.log(result);
             var row = document.getElementById('HI');
