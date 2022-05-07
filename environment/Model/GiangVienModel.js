@@ -15,6 +15,7 @@ async function Get() {
   const params = {
     TableName: 'GiangViens',
   };
+  // console.log('This is table GiangViens');
   try {
     let Records = await docClient.scan(params).promise();
     return Records;

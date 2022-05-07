@@ -12,7 +12,6 @@ AWS.config.update({
 const sqs = new AWS.SQS({ apiVersion: '2012-11-05' });
 const queueUrl = `https://sqs.us-east-1.amazonaws.com/${accountId}/test`;
 const urlUpdate = `https://sqs.us-east-1.amazonaws.com/${accountId}/UpdateKhoa`;
-console.log(urlUpdate);
 var docClient = new AWS.DynamoDB.DocumentClient();
 async function Get() {
   const params = {

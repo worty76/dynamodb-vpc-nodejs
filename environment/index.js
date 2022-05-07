@@ -14,15 +14,6 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 app.use(cookieParser());
 app.use(cors());
 
-// const ip = process.env.IP;
-// console.log(ip);
-
-// app.get('/', function (req, res) {
-//   res.cookie('ip', '192.168.1.254', {
-//     expires: new Date(Date.now() + 2000000),
-//   });
-//   res.send('success');
-// });
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 const KhoaRouter = require('./Router/KhoaRouter');

@@ -149,10 +149,10 @@ async function Update(ID, ID1, Data) {
   var params = {
     TableName: 'Diems',
     Key: {
-      User_Id: ID,
+      MaMon: ID,
       MaSV: ID1,
     },
-    UpdateExpression: 'set DiemChuyenCan = :cc, DiemGiuaKi=gk, DiemCuoiKi=:ck',
+    UpdateExpression: 'set DiemChuyenCan = :cc, DiemGiuaKi=:gk, DiemCuoiKi=:ck',
     ExpressionAttributeValues: {
       ':cc': Data.DiemChuyenCan,
       ':gk': Data.DiemGiuaKi,

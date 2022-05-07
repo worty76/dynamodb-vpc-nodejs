@@ -115,13 +115,13 @@ async function Update(ID, Data) {
     Key: {
       User_Id: ID,
     },
-    UpdateExpression: 'set User_Id = :u, Role=:r',
+    UpdateExpression: 'set Role=:r, PassWord =:p, UserName =:u',
     ExpressionAttributeValues: {
-      ':u': Data.User_Id,
       ':r': Data.Role,
+      ':p': Data.PassWord,
+      ':u': Data.UserName,
     },
   };
-
   docClient.update(params, function (err, data) {
     if (err) console.log(err);
     else console.log('Update username, password: ' + data);
@@ -176,6 +176,7 @@ async function Update1(ID, Data) {
     User_Id: ID,
     Role: Data,
   };
+
   let sqsDiemData = {
     MessageAttributes: {
       User_Id: {
@@ -197,16 +198,17 @@ async function Update1(ID, Data) {
     Key: {
       User_Id: ID,
     },
-    UpdateExpression: 'set User_Id = :u, Role=:r',
+    UpdateExpression: 'set Role=:r, PassWord =:p, UserName =:u',
     ExpressionAttributeValues: {
-      ':u': Data.User_Id,
       ':r': Data.Role,
+      ':p': Data.PassWord,
+      ':u': Data.UserName,
     },
   };
 
   docClient.update(params, function (err, data) {
     if (err) console.log(err);
-    else console.log('Update user_id, role: ' + data);
+    else console.log('Update user success : ' + data);
   });
   let sendSqsMessage = sqs.sendMessage(sqsDiemData).promise();
   sendSqsMessage

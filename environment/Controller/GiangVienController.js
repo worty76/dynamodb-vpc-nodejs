@@ -2,6 +2,7 @@ const GiangVienModel = require('../Model/GiangVienModel');
 exports.GetAllList = (req, res) => {
   GiangVienModel.Get().then((result) => {
     // console.log(result);
+    // console.log('this permission' + result.Items);
     res.json(result.Items);
   });
 };

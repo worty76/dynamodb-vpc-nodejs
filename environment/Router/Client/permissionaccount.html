@@ -116,7 +116,6 @@
               class="list-group-item list-group-item-action menu__item"
             >
               <i class="bx bx-user-plus"></i>
-              Cấp quyền
             </a>
             <a
               href="/ChangePass"
@@ -133,7 +132,6 @@
         <div class="col-10 px-0 position-relative">
           <div class="header-name text-black fw-bold fs-5 p-2">
             <i class="bx bx-error-circle" style="color: #0096ff"></i>
-            CẤP QUYỀN
           </div>
 
           <div class="my-4 mx-3 d-flex justify-content-between">
@@ -438,7 +436,7 @@
 
           <!-- FOOTER -->
           <footer class="footer py-3 mx-0 text-center bg-dark opacity-75">
-            Copyright ISTUDENT © 2021
+            Copyright ISTUDENT © Cloud Computing - 5/2022
           </footer>
           <!-- END FOOTER -->
         </div>
@@ -517,7 +515,7 @@
                                                 <!-- Button EDIT-->
                                                 <button type="button" class="btn btn-outline-danger py-1" onclick="CapQuyen('` +
             data[total2].MaGV +
-            `')"><i class='bx bx-pen'>Cấp quyền</i> 
+            `')"><i class='bx bx-pen'>Cấp quyền</i>
                                                 </button>
                                              </td>`;
         }
@@ -538,7 +536,7 @@
             url: ip + '/account/', //Tên servlet
             successc: function (result1) {
               data2 = result1;
-              console.log(data2);
+              console.log('this is account ' + data2);
               GomMang(data);
             },
           });
