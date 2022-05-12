@@ -5,6 +5,11 @@ router.get('/login', function (req, res) {
   console.log(__dirname);
   res.sendFile(__dirname + '/Client/Login.html');
 });
+
+router.get('/register', function (req, res) {
+  console.log(__dirname);
+  res.sendFile(__dirname + '/Client/Register.html');
+});
 router.get('/', function (req, res) {
   console.log(__dirname);
   res.sendFile(__dirname + '/Client/student.html');

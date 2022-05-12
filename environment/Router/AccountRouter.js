@@ -4,6 +4,7 @@ const router = express.Router();
 const GiangVienController = require('../Controller/AccountController');
 
 router.get('/account', GiangVienController.GetAllList);
+router.post('/account', GiangVienController.createNewRecord);
 router.get('/', GiangVienController.GetAllList);
 
 router.post('/', GiangVienController.createNewRecord);
