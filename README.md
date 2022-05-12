@@ -19,8 +19,8 @@ DynamoDB và Lambda của AWS
   install npm" để cài đặt Nodejs.
 - Chạy lệnh aws configure và cung cấp lần lượt các thông tin AWS Access Key ID,
   AWS Secret Access Key, Default region name, Default output format.
-- Chạy lệnh aws configure set
-  aws_session_token"FwoGZXIvYXdzEPD//////////wEaDM9JdORI44d8kPu8byLPAcIkEFN8BC5ioShxQfMxzqmURPt3a845zvT0q03i+acgyvQYT+Yfi/nkUxaUilk70NaZQWprilgbKTAW49of2j/xvMuXSypUEc9No9WwZ839NvTlaoT6Ertfbpkr9JXtS0Vpo6PsaFkrgXwRtIOgF8TeFuKB6l6F23rSXCDp+GfR3tc8kviic370QCg2cDEE7UrGOonLn3VTuEQ4B8/ZBcpf7mX74eusYytoOh+Qi5hq2zKsLm/WoFWA26rdyqrZJA6rFOVpr+nwwshVxFXlUCjB49STBjItz8ptf1VeTfnzAQ16pqy2/o98CvBOaKP30qkKs3yFJ2Tgy6P3hrUgVkvoJhpf"
+- Chạy lệnh aws configure set aws_session_token
+  "FwoGZXIvYXdzEID//////////wEaDGJbTwefLfU4yIRtCyLPAU8Azn4l79e9T6gEaL5qlq0Z0Hcst3qSDlrT6bxqgjgtttyxbDz8SitWw67qoeokf1rVzOPJ8VFPDyoNwThWJ+J5YfAQAe4RzB9svby4OU1A/ZBeukOkcfey6JJf0TnO0tm/h7ze1DmjCAhKnSJXlEoeiXoaKVYuQSUXAMQjm7IUR6OjkeRl9ASgwaBGr+afQx/UQbYgMvPuZ33IsNJ3SNayLLT/tO7cMAjWQfDz0j58WFTCzWUTYtL/3ORlVcL79cXSUmI//Wc0YPFas/7HoijUs/STBjItYgvTlS9dqZJpHNAD8KWaaNzZLzzF3OfNbAxvDlSOlqdKwkXEmyZ6MJR4L9cw"
 
   để cung cấp token.
 
@@ -37,3 +37,13 @@ DynamoDB và Lambda của AWS
 
 - Đi đến thư mục environment bằng lệnh "cd AWS/environment"
 - Chạy lệnh "node index" để chạy trang web
+
+### 5. VPC
+
+- Tạo vpc: aws ec2 create-vpc-endpoint --vpc-id vpc-086106c39d2c8ae5c
+  --service-name com.amazonaws.us-east-1.dynamodb --route-table-ids
+  rtb-0a374d0d08f4479fb
+
+### 6. Chú ý
+
+- kill port: sudo kill -9 $(sudo lsof -t -i:3000)
