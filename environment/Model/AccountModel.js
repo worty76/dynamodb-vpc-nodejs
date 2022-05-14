@@ -73,10 +73,12 @@ async function Create(Data) {
     Item: DiemData,
   };
 
-  console.log(DiemData);
   docClient.put(params, function (err, data) {
     if (err) console.log(err);
-    else console.log('Insert successfully: ' + data);
+    else {
+      console.log('Insert successfully: ' + data);
+      return data;
+    }
   });
 
   let sendSqsMessage = sqs.sendMessage(sqsDiemData).promise();
@@ -84,12 +86,13 @@ async function Create(Data) {
     .then((data) => {
       console.log(`OrdersSvc | SUCCESS: ${data.MessageId}`);
 
-      return;
+      return data;
     })
     .catch((err) => {
       console.log(`OrdersSvc | ERROR: ${err}`);
     });
 }
+
 async function Update(ID, Data) {
   let DiemData = {
     User_Id: ID,

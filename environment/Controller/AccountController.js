@@ -17,8 +17,7 @@ exports.createNewRecord = (req, res) => {
   let DiemReqData = req.body;
   // console.log(DiemReqData)
   GiangVienModel.Create(DiemReqData).then((result) => {
-    // console.log(result);
-    res.status(201).json(result);
+    res.status(201).json('result');
   });
 };
 exports.updateRecord = (req, res) => {

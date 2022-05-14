@@ -79,8 +79,8 @@
     </script>
 
     <script>
-        // const ip = 'http://52.1.25.243:8889';
-        const ip = '';
+        const ip = 'http://52.1.25.243:8889';
+        // consdct ip = '';
 
 
         function Register() {
@@ -94,12 +94,14 @@
                         UserName: a,
                         PassWord: b,
                         User_Id: parseInt(Math.random() * 1000),
-                        Role: 'USER',
+                        Role: 'Teacher',
 
                     },
-                    async: true,
+
                     success: function (response) {
-                        $("#changePage").load(`${ip}/Login.html`);
+
+                        alert('Đăng ký tài khoản thành công');
+                        window.location = '/login';
                     }
                 });
             }
