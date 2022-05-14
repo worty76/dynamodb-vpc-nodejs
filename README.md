@@ -19,7 +19,7 @@ DynamoDB và Lambda của AWS
 
 ### 2. Tạo 1 địa chỉ ElasticIP và gán nó vào máy ảo EC2 vừa tạo
 
-- Ở đây nhóm mình dùng ElasticIP là: http://52.1.25.243
+- Ở đây nhóm mình dùng ElasticIP là:
 
 ### 3. Thực hiện cấu hình máy ảo
 
@@ -27,11 +27,11 @@ DynamoDB và Lambda của AWS
   install npm" để cài đặt Nodejs.
 - Chạy lệnh aws configure và cung cấp lần lượt các thông tin AWS Access Key ID,
   AWS Secret Access Key, Default region name, Default output format.
-- Chạy lệnh aws configure set aws_session_token "<your_session_tooken>" để cung
-  cấp token.
+- Chạy lệnh aws configure set aws_session_token
+  "FwoGZXIvYXdzEK3//////////wEaDLan4nLA4azlotiZgyLPATlRwfreR9F6FXzwOYFwnk9eGytsssj/3K4MYueuP/hkk5BicZ+BgV+MB0RynSvEmPwd3TlSWXDcSa7CPgAgeEj+qqb9hnrQALDf62mOcyA5ixPIXqach3RgQ/6YBaNPCgYLjZS4C6RhRKIAEsqvqMeVwqdOqZDBTIUXvi60C+W+opAztELFvAlhXINSQ4fLfE1Wn9kmqoLpG8aClN7OBdtXxHwYPUtq+hOSgPQ7FTNJ5Vemg296c9Ts3AGpBQHf1N6fteAkhuXtOGpKjHk59Si9rf6TBjIt4L4Tw8XKu4uM07MrRoDoVFt4cjbrLp5jdsPuQ84IAqhm6kxBjVti9NRB6p2I"
+  để cung cấp token.
 
-  -Kiểm tra cách cấu hình kết nối với AWS CLI có thành công hay không: aws sts
-  get-caller-identity
+  -Kiểm tra cách cấu hình kết nối với AWS CLI có thành công hay không: aws sts get-caller-identity
 
 - Tạo thêm các Simple queue service, với 25 sqs
   (ChangePass,DeleteDiemm,DeleteGV,DeleteKhoa,DeleteLop,DeleteMonHoc,DeletePhanCong,DeleteSV,Delete_Account,InsertDiem,InsertGV,InsertLop,InsertMonHoc,InsertPhanCong,InsertSV,Insert_Account,UpdateDiem,UpdateGV,UpdateKhoa,UpdateLop,UpdateMonHoc,UpdatePhanCong,UpdateSV,Update_Account,test,
@@ -64,4 +64,4 @@ DynamoDB và Lambda của AWS
 
 ### 6. Chú ý
 
-- Nếu xảy ra trùng port thì phải kill port: sudo kill -9 $(sudo lsof -t -i:3000)
+- Nếu xảy ra trùng port thì phải kill port: sudo kill -9 $(sudo lsof -t -i:8889)
