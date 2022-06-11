@@ -27,7 +27,7 @@ DynamoDB và Lambda của AWS
   install npm" để cài đặt Nodejs.
 - Chạy lệnh aws configure và cung cấp lần lượt các thông tin AWS Access Key ID,
   AWS Secret Access Key, Default region name, Default output format.
-- Chạy lệnh    
+- Chạy lệnh aws configure set aws_session_token "FwoGZXIvYXdzEEcaDGslf2+P2VbqJpNPOSLPASTQEHPAq6GJx8Fphl91bcH6rRWZ8tNtG10LgGfk22nC2fn79IaLbmiuBmuZdddHbz57QGFvPRHcn8Io8uzLy7jgCdOPA8sr9Sdkb6jwiW93ApatsenznX/GbcebmhwwdBqnTwWCbG+x4oyB+nnznAUlzQ1AbcDuvcxRHHI29demW6I99i6l8qcXJ84BDF6orwEhhEDVRXpKIOveg46nacSTXbJXVRUvxEViHULRVpIzu4Vao3eThyRyZ6sdshnvEoRT9gmMLRKzAALk92j4pSjXz5CVBjItI4riGHdsKzHdchBi1M8U+77quVOfW42tednV7vYrGwDhERpjgsPYeYjXzzXj"
   để cung cấp token.
 
   -Kiểm tra cách cấu hình kết nối với AWS CLI có thành công hay không: aws sts get-caller-identity

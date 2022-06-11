@@ -60,7 +60,7 @@ async function Create(Data) {
       },
     },
     MessageBody: JSON.stringify(SVData),
-    QueueUrl: `https://sqs.us-east-1.amazonaws.com/518269260543/InsertSV`,
+    QueueUrl: `https://sqs.us-east-1.amazonaws.com/741347076500/InsertSV`,
   };
 
   var params = {
@@ -150,7 +150,7 @@ async function Update(ID, Data) {
       },
     },
     MessageBody: JSON.stringify(SVData),
-    QueueUrl: `https://sqs.us-east-1.amazonaws.com/518269260543/UpdateSV`,
+    QueueUrl: `https://sqs.us-east-1.amazonaws.com/741347076500/UpdateSV`,
   };
 
   var params = {
@@ -200,7 +200,7 @@ async function Delete(ID) {
       },
     },
     MessageBody: JSON.stringify(LopData),
-    QueueUrl: 'https://sqs.us-east-1.amazonaws.com/518269260543/DeleteSV',
+    QueueUrl: 'https://sqs.us-east-1.amazonaws.com/741347076500/DeleteSV',
   };
 
   var params = {

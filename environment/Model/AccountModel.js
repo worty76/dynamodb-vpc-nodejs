@@ -81,16 +81,16 @@ async function Create(Data) {
     }
   });
 
-  let sendSqsMessage = sqs.sendMessage(sqsDiemData).promise();
-  sendSqsMessage
-    .then((data) => {
-      console.log(`OrdersSvc | SUCCESS: ${data.MessageId}`);
+  // let sendSqsMessage = sqs.sendMessage(sqsDiemData).promise();
+  // sendSqsMessage
+  //   .then((data) => {
+  //     console.log(`OrdersSvc | SUCCESS: ${data.MessageId}`);
 
-      return data;
-    })
-    .catch((err) => {
-      console.log(`OrdersSvc | ERROR: ${err}`);
-    });
+  //     return data;
+  //   })
+  //   .catch((err) => {
+  //     console.log(`OrdersSvc | ERROR: ${err}`);
+  //   });
 }
 
 async function Update(ID, Data) {

@@ -123,8 +123,7 @@ async function Delete(MaGV, MaMon, MaLop) {
       },
     },
     MessageBody: JSON.stringify(DiemData),
-    QueueUrl:
-      'https://sqs.us-east-1.amazonaws.com/518269260543/DeletePhanCong',
+    QueueUrl: 'https://sqs.us-east-1.amazonaws.com/741347076500/DeletePhanCong',
   };
 
   var params = {
