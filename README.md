@@ -1,13 +1,14 @@
-# Đồ án xây dụng web serverless trên dịch vụ đám mây AWS
+# Báo cáo xây dụng web serverless trên dịch vụ đám mây AWS
 
 Thực hiện tạo một webside serverless quản lý sinh viên đơn giản sử dụng dịch vụ
 DynamoDB và Lambda của AWS
 
 ## Thành viên thực hiện
 
-- Trần Quốc Tuấn: 19133064
-- Trần Phát Đạt: 19133050
-- Nguyễn Lâm Sơn: 19133050
+- Lê Thành Đạt: 21IT063
+- Doãn Bá Min: 21IT092
+- Nguyễn Đức Nhã: 21IT095
+- Đặng Thái Sơn: 21IT232
 
 ## Hướng dẫn cài đặt
 
