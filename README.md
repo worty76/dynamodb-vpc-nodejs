@@ -1,7 +1,4 @@
-# Báo cáo xây dụng web serverless trên dịch vụ đám mây AWS
-
-Thực hiện tạo một webside serverless quản lý sinh viên đơn giản sử dụng dịch vụ
-DynamoDB và Lambda của AWS
+# Đề tài: Nghiên cứu mô hình cung cấp tài nguyên trong điện toán đám mây – Case Study xây dựng VPC và chạy Webserver trên AWS
 
 ## Thành viên thực hiện
 
